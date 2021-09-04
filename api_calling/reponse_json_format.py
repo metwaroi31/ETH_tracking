@@ -23,14 +23,15 @@ PLATFORM_TOKEN = {
     }
 }
 
+# This model has bug please work on this
 EXCHANGE_RATE_REALTIME = {
     "type" : "object", 
     "properties" : {
+        "^" : {"type" : "string"},
         ".*\market_cap$" : {"type" : "string"},
         ".*\\24h_volume$" : {"type" : "string"},
         ".*\\24h_change$" : {"type" : "string"},
         "last_updated_at" : {"type" : "integer"}
     },
-    "additionalProperties" : True
 }
 
