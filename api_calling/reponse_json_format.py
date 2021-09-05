@@ -40,6 +40,7 @@ EXCHANGE_RATE_DAILY = {
     "items" : {
         "type" : "array",
         "items" : {"type" : "number"},
+        "minItems" : 5,
         "maxItems" : 5
     }
 }
