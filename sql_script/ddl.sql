@@ -30,30 +30,36 @@ CREATE TABLE IF NOT EXISTS platformToken (
 CREATE TABLE IF NOT EXISTS exchangeRateRealtime (
 	platformId VARCHAR(10) NOT NULL,
   	platformAddress VARCHAR(60) NOT NULL,
+	currencyKey VARCHAR(10) NOT NULL,
   	value REAL NOT NULL,
   	marketCap REAL NOT NULL,
   	volume REAL NOT NULL,
   	valueChange REAL NOT NULL,
   	lastUpdated DATETIME NOT NULL,
    	PRIMARY KEY(platformId, platformAddress),
-  	FOREIGN KEY(platformId, platformAddress) references platform(platformId, platformAddress)
+  	FOREIGN KEY(platformId, platformAddress) references platform(platformId, platformAddress),
+	FOREIGN KEY(currencyKey) references currency(currencyKey)
 );
 
 CREATE TABLE IF NOT EXISTS exchangeRateDaily (
 	id INT IDENTITY(0,1) NOT NULL,
+	currencyKey VARCHAR(10) NOT NULL,
   	openValue REAL NOT NULL,
   	lowValue REAL NOT NULL,
   	highValue REAL NOT NULL,
   	closeValue REAL NOT NULL,
   	updatedDate DATETIME NOT NULL,
-  	PRIMARY KEY(id)
+  	PRIMARY KEY(id),
+	FOREIGN KEY(currencyKey) references currency(currencyKey)
 );
 
 CREATE TABLE IF NOT EXISTS marketRateDaily (
 	id INT IDENTITY(0,1) NOT NULL,
+	currencyKey VARCHAR(10) NOT NULL,
   	price REAL NOT NULL,
   	marketCap REAL NOT NULL,
   	totalVolume REAL NOT NULL,
   	updatedDate REAL NOT NULL,
-  	PRIMARY KEY (id)
+  	PRIMARY KEY (id),
+	FOREIGN KEY (currencyKey) references currency(currencyKey) 
 );
