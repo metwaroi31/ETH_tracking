@@ -20,5 +20,6 @@ def construct_url(parameters=None, api=None):
         return_url = DOMAIN + api
 
     if "id" in parameters.keys():
-        return_url.replace("replacing_id", parameters.get("id"))
+        return_url = return_url.replace("replacing_id", parameters.get("id"))
+        
     return return_url

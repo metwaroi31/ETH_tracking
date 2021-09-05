@@ -1,5 +1,8 @@
 # used to validate data from API 
 
+from constant import MARKET_API
+
+
 CURRENCY = {
     "type" : "array",
     "items" : {
@@ -42,5 +45,44 @@ EXCHANGE_RATE_DAILY = {
         "items" : {"type" : "number"},
         "minItems" : 5,
         "maxItems" : 5
+    }
+}
+
+MARKET_DAILY = {
+    "type" : "object",
+    "properties" : {
+        "prices" : {
+            "type" : "array",
+            "items" : {
+                "type" : "array",
+                "items" : {
+                    "type" : "number",
+                    "minItems" : 2,
+                    "maxItems" : 2
+                }
+            }
+        },
+        "market_cap" : {
+            "type" : "array",
+            "items" : {
+                "type" : "array",
+                "items" : {
+                    "type" : "number",
+                    "minItems" : 2,
+                    "maxItems" : 2
+                }
+            }
+        },
+        "total_volumes" : {
+            "type" : "array",
+            "items" : {
+                "type" : "array",
+                "items" : {
+                    "type" : "number",
+                    "minItems" : 2,
+                    "maxItems" : 2
+                }
+            }
+        }
     }
 }

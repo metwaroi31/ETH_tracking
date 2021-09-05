@@ -1,6 +1,7 @@
 from api_calling.services.currency_services import get_currency_list
 from api_calling.services.platform_token_services import get_exchange_rate_token_daily, get_platform_token_list, get_exchange_rate_token_realtime
-from api_calling.reponse_json_format import CURRENCY, PLATFORM_TOKEN, EXCHANGE_RATE_REALTIME, EXCHANGE_RATE_DAILY
+from api_calling.services.market import get_market_daily
+from api_calling.reponse_json_format import CURRENCY, PLATFORM_TOKEN, EXCHANGE_RATE_REALTIME, EXCHANGE_RATE_DAILY, MARKET_DAILY
 
 # TO DO : tranform into excel files based on DDL
 
@@ -17,13 +18,12 @@ parameters_platform_token_list = {
     "include_platform" : "true"
 }
 
-parameters_price_daily_api = {
-    "id" : "",
-    "vs_currencies" : "usd",
-    "days" : 7
+parameters_market_daily = {\
+    "vs_currency" : "usd",
+    "days" : 1
 }
 
 # print (get_currency_list(model=CURRENCY))
 # print (get_platform_token_list(parameters=parameters_platform_token_list,model=PLATFORM_TOKEN))
 # print (get_exchange_rate_token_realtime(parameters=parameters_price_api, model=EXCHANGE_RATE_REALTIME))
-print (get_exchange_rate_token_daily(parameters=parameters_price_daily_api, model=EXCHANGE_RATE_DAILY))
+print (get_market_daily(parameters=parameters_market_daily, model=MARKET_DAILY))
