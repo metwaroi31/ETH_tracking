@@ -12,6 +12,8 @@ def get_currency_list(model):
 
     # check if we can retrive the api successfully 
     try :
+        if response_currency_api.status_code == 500:
+            raise Exception("Wrong URL or service down on api coigecko for currency API") 
         currency_list = parse_response(response=response_currency_api)
     except Exception:
         raise Exception("Wrong URL or service down on api coigecko for currency API") 

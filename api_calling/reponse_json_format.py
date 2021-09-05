@@ -35,3 +35,12 @@ EXCHANGE_RATE_REALTIME = {
     },
 }
 
+EXCHANGE_RATE_DAILY = {
+    "type" : "array",
+    "items" : {
+        "type" : "array",
+        "items" : {"type" : "number"},
+        "minItems" : 5,
+        "maxItems" : 5
+    }
+}
