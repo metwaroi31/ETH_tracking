@@ -1,3 +1,4 @@
+from api_calling.services.market import get_market_daily
 from api_calling.services.currency_services import get_currency_list
 from api_calling.services.platform_token_services import get_exchange_rate_token_daily, get_platform_token_list, get_exchange_rate_token_realtime
 from api_calling.reponse_json_format import CURRENCY, PLATFORM_TOKEN, EXCHANGE_RATE_REALTIME, EXCHANGE_RATE_DAILY
@@ -18,11 +19,14 @@ parameters_platform_token_list = {
 }
 
 parameters_price_daily_api = {
-    "id" : "",
-    "vs_currencies" : "usd",
+    "id" : "01coin",
+    "vs_currency" : "usd",
     "days" : 7
 }
 
+# parameters_market_daily_api = {
+#     ""
+# }
 # print (get_currency_list(model=CURRENCY))
 # print (get_platform_token_list(parameters=parameters_platform_token_list,model=PLATFORM_TOKEN))
 # print (get_exchange_rate_token_realtime(parameters=parameters_price_api, model=EXCHANGE_RATE_REALTIME))

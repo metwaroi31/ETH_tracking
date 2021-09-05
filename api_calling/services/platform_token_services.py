@@ -52,7 +52,7 @@ def get_exchange_rate_token_daily(parameters, model):
     exchange_rate_daily = None
     requests_url = construct_url(parameters=parameters, api=TOKEN_ETHEREUM_PRICE_API_DAILY)
     exchange_rate_daily_byte = requests.get(requests_url)
-
+    
     try :
         if exchange_rate_daily_byte.status_code == 500:
             raise Exception("Wrong url or service down on api coigecko to get exchange rate daily")
@@ -65,4 +65,4 @@ def get_exchange_rate_token_daily(parameters, model):
     except jsonschema.ValidationError:
         raise jsonschema.ValidationError
 
-    return
+    return exchange_rate_daily
